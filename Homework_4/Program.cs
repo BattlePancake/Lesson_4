@@ -17,17 +17,17 @@
 // int[] arr = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5};
 // Console.WriteLine("Enter your number: ");
 // int num = int.Parse(Console.ReadLine());
-// int success = 0;
+// bool success = false;
 // for(int a = 0; a < arr.Length; a++)
 // {
 //     if(num == arr[a])
 //     {
-//         success = 1;
+//         success = true;
 //         Console.Write($"Number {num} is in array.");
 //         break;
 //     }
 // }
-// if(success == 0)
+// if(success == false)
 // {
 //     Console.Write($"Number {num} is NOT in array.");
 // }
@@ -50,7 +50,7 @@
 //     arr[a] = Random.Shared.Next(1,9);
 //     Console.Write($"{arr[a]} ");
 // }
-// int max = 0;
+// int max = arr[0];
 // foreach(int b in arr)
 // {
 //     if (max < b)
@@ -134,14 +134,32 @@
 //     Console.Write($"{arr[a]} ");
 // }
 // Console.WriteLine();
-// int[] arr1 = new int[arrLen];
+// int arr1Len = 0;
 // for(int b = 0; b < arrLen; b++)
 // {
 //     if(arr[b] % 2 == 0)
 //     {
-//         arr1[b] = arr[b];
-//         Console.Write($"{arr1[b]} ");
+//         arr1Len++;
 //     }
+// }
+// Console.WriteLine(arr1Len);
+// if(arr1Len == 0)
+// {
+//     Console.WriteLine("No even numbers: ");
+//     return;
+// }
+// int[] arr1 = new int[arr1Len];
+// for(int b = 0, c = 0; b < arrLen; b++)
+// {
+//     if(arr[b] % 2 == 0)
+//     {
+//         arr1[c] = arr[b];
+//         c++;
+//     }
+// }
+// for(int b = 0; b < arr1Len; b++)
+// {
+//     Console.Write($"{arr1[b]} ");
 // }
 
 
@@ -265,26 +283,13 @@
 //     Console.Write($"{arr1[c,c]} ");
 // }
 // Console.WriteLine("\n\n");
-// for(int a = 3; a >= 0; a--)
+
+// for(int a = 0, b = arr1.GetLength(1) - 1; a < arr1.GetLength(0); a++,b--)
 // {
-//     for(int b = 0; b < arr1.GetLength(1); b++)
+//     for(;b >= 0;)
 //         {
-//             if(a == arr1.GetLength(0) - 1 && b == 0)
-//             {
-//                 Console.Write($"{arr1[a,b]} ");
-//             }
-//             else if(a == arr1.GetLength(0) - 2 && b == arr1.GetLength(0) - 3)
-//             {
-//                 Console.Write($"{arr1[a,b]} ");
-//             }
-//             else if(a == arr1.GetLength(0) - 3 && b == arr1.GetLength(0) - 2)
-//             {
-//                 Console.Write($"{arr1[a,b]} ");
-//             }
-//             else if(a == 0 && b == arr1.GetLength(0) - 1)
-//             {
-//                 Console.Write($"{arr1[a,b]} ");
-//             }
+//             Console.Write($"{arr1[a,b]} ");
+//             break;
 //         }
 // }
 
@@ -366,9 +371,9 @@
 
 // int[,] arr5 = {{9,2,4,3,5,6,7,8,1},{10,15,14,16,11,13,12,18,17}};
 
-// for(int a = 0; a < 1; a++)
+// for(int a = 0; a < arr5.GetLength(0) - 1; a++)
 // {   
-//     for (int z = 0; z < arr5.GetLength(1)-1; z++)
+//     for (int z = 0; z < arr5.GetLength(1) - 1; z++)
 //     {
 //         for(int b = z + 1; b < arr5.GetLength(1); b++)
 //         {
@@ -381,7 +386,7 @@
 //         }
 //     }
 // }
-// for(int a = 1; a < 2; a++)
+// for(int a = 1; a < arr5.GetLength(0); a++)
 // {   
 //     for (int z = 0; z < arr5.GetLength(1)-1; z++)
 //     {
